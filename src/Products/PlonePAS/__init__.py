@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from AccessControl.Permissions import add_user_folders
-from Products.CMFCore.utils import ToolInit
 from Products.PlonePAS.pas import patch_pas
 from Products.PlonePAS.plugins import autogroup
 from Products.PlonePAS.plugins import cookie_handler
@@ -34,13 +33,9 @@ deprecated(
     MembershipTool='Products.CMFPlone.pas.membership:MembershipTool',
 )
 
-
 ####################################
 # monkey patch pas, the evil happens
 patch_pas()
-
-#################################
-# new groups tool
 
 #################################
 # register plugins with pas
