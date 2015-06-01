@@ -2,7 +2,7 @@
 from setuptools import setup
 from setuptools import find_packages
 
-version = '5.0.3.dev0'
+version = '5.1.0.dev0'
 
 longdescription = open("README.rst").read()
 longdescription += '\n'
@@ -28,16 +28,16 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'Products.CMFCore',
-        'Products.GenericSetup',
-        'Products.PluggableAuthService',
-        'Zope2 >=2.13.22',
         'plone.i18n',
         'plone.memoize',
         'plone.session',
+        'Products.CMFCore',
+        'Products.GenericSetup',
+        'Products.PluggableAuthService',
         'setuptools',
+        'zope.deferredimport',
         'zope.deprecation',
-        'plone.protect'
+        'Zope2 >=2.13.22',
     ],
     extras_require=dict(
         test=[

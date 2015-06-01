@@ -12,11 +12,28 @@ from Products.PlonePAS.plugins import property
 from Products.PlonePAS.plugins import role
 from Products.PlonePAS.plugins import ufactory
 from Products.PlonePAS.plugins import user
-from Products.PlonePAS.tools.groupdata import GroupDataTool
-from Products.PlonePAS.tools.groups import GroupsTool
-from Products.PlonePAS.tools.memberdata import MemberDataTool
-from Products.PlonePAS.tools.membership import MembershipTool
 from Products.PluggableAuthService import registerMultiPlugin
+from zope.deferredimport import deprecated
+
+########################################
+# BBB, can be removed latest in Plone 6
+deprecated(
+    "Import from 'Products.CMFPlone.pas.groupdata' instead",
+    GroupsDataTool='Products.CMFPlone.pas.groupdata:GroupDataTool'
+)
+deprecated(
+    "Import from 'Products.CMFPlone.pas.groups' instead",
+    GroupsTool='Products.CMFPlone.pas.groups:GroupsTool'
+)
+deprecated(
+    "Import from 'Products.CMFPlone.pas.memberdata' instead",
+    MemberDataTool='Products.CMFPlone.pas.groups:MemberDataTool',
+)
+deprecated(
+    "Import from 'Products.CMFPlone.pas.membership' instead",
+    MembershipTool='Products.CMFPlone.pas.membership:MembershipTool',
+)
+
 
 ####################################
 # monkey patch pas, the evil happens
@@ -44,14 +61,6 @@ except RuntimeError:
 
 
 def initialize(context):
-
-    tools = (GroupsTool, GroupDataTool, MembershipTool, MemberDataTool)
-
-    ToolInit(
-        'PlonePAS Tool',
-        tools=tools,
-        icon='tool.gif',
-    ).initialize(context)
 
     context.registerClass(
         role.GroupAwareRoleManager,

@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
-from Products.CMFCore import interfaces
+from zope.deferredimport import deprecated
 
-
-class IMembershipTool(interfaces.IMembershipTool):
-
-    def getMemberInfo(memberId=None):
-        """Return 'harmless' Memberinfo of any member, such as full name,
-        location, etc
-        """
-
-__all__ = (IMembershipTool, )
+# BBB, can be removed latest in Plone 6
+deprecated(
+    "Import from 'Products.CMFPlone.interfaces.membership' instead",
+    IMembershipTool='Products.CMFPlone.interfaces.membership:IMembershipTool',
+)

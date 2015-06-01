@@ -1,10 +1,12 @@
 Changelog
 =========
 
-5.0.3 (unreleased)
+5.1.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Move tools from Products.PlonePAS to Products.CMFPlone (keep deprecated BBB
+  imports at old place).
+  [jensens]
 
 
 5.0.2 (2015-05-04)
